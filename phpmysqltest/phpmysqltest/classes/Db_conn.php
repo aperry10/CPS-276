@@ -9,9 +9,9 @@ class DatabaseConn {
     try {
 
       $dbHost = 'localhost';
-      $dbName = 'aperry10';//this will be your WCC username
-      $dbUsr = 'aperry10';//this will be your WCC username
-      $dbPass = 'OBHX5Iup9sEA7sx';//this will be the password found in the video.
+      $dbName = 'WCC Username';//this will be your WCC username
+      $dbUsr = 'WCC Username';//this will be your WCC username
+      $dbPass = 'Your password';//this will be the password found in the video.
 
       $this->conn = new PDO('mysql:host=' . $dbHost . ';dbname=' . $dbName, $dbUsr, $dbPass);
       
