@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <h1>Name List</h1>
 
-    <form action="processNames.php" method="post">
+    <form action="processnames.php" method="post">
 
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" class="form-control">
