@@ -1,5 +1,47 @@
-<<!doctype html>
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $action = $_POST["action"] ?? "";
+    $names = $_POST["names"] ?? "";
+
+    if ($action === "add") {
+
+        $firstName = $_POST["firstName"] ?? "";
+        $lastName = $_POST["lastName"] ?? "";
+
+        if ($firstName !== "" && $lastName !== "") {
+
+            if ($names !== "") {
+                $nameList = explode("\n", $names);
+            } else {
+                $nameList = [];
+            }
+
+            // Switches the order of the names.
+            $newName = $lastName . ", " . $firstName;
+
+            $nameList[] = $newName;
+
+            // Puts them in alphabetical order.
+            sort($nameList);
+
+            // Becomes a string again.
+            $names = implode("\n", $nameList);
+        }
+
+    } else {
+
+        // Clear the list.
+        $names = "";
+    }
+}
+
+?>
+
+<!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +81,9 @@
 
         <label for="names">Names:</label>
 
-        <textarea id="names" name="names" rows="10" class="form-control"></textarea>
+        <textarea id="names" name="names" rows="10" class="form-control"><?php
+            echo htmlspecialchars($names);
+        ?></textarea>
 
     </form>
 
