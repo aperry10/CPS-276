@@ -21,14 +21,21 @@ class Calculator
         } elseif ($operator == "*") {
             $answer = $number1 * $number2;
         } elseif ($operator == "/") {
-            if ($number2 == 0) {
-                $answer = "cannot divide a number by zero";
-            } else {
-                $answer = $number1 / $number2;
-            }
+            return $this->divide($number1, $number2);
         }
 
         return "<p>The calculation is $number1 $operator $number2. The answer is $answer.</p>";
+    }
+
+    public function divide($number1, $number2)
+    {
+        if ($number2 == 0) {
+            $answer = "cannot divide a number by zero";
+        } else {
+            $answer = $number1 / $number2;
+        }
+
+        return "<p>The calculation is $number1 / $number2. The answer is $answer.</p>";
     }
 }
 ?>
