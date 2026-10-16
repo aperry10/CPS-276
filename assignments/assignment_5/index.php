@@ -41,13 +41,14 @@ class FileDirectory
         $success = mkdir($dir, 0777);
 
         if (!$success) {
-            retun [
+            return [
                 "success" => false,
                 "message" => "There was a problem creating the directory."
             ];
         }
-        
+
         chmod($dir, 0777);
+        
         // Creates and opens the file.
         $path = $dir . "/readme.txt";
         $handle = fopen($path, "w");
