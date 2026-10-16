@@ -48,7 +48,7 @@ class FileDirectory
         }
 
         chmod($dir, 0777);
-        
+
         // Creates and opens the file.
         $path = $dir . "/readme.txt";
         $handle = fopen($path, "w");
@@ -118,7 +118,9 @@ if (isset($_POST["submit"])) {
 
 <div class="container mt-5">
 
-    <h1>Files and Directories</h1>
+    <h1>Files and Directory Assignment</h1>
+
+    <p>Enter a folder name and the contents of a file. Folder names should contain alpha numeric characters only.</p>
 
     <form method="POST">
 
