@@ -37,8 +37,7 @@ class FileDirectory
             ];
         }
 
-        // Makes the directory with 0777 permissions.
-        $success = mkdir($dir, 0777);
+        $success = mkdir($dir,);
 
         if (!$success) {
             return [
@@ -47,7 +46,7 @@ class FileDirectory
             ];
         }
 
-        chmod($dir, 0777);
+       
 
         // Creates and opens the file.
         $path = $dir . "/readme.txt";
