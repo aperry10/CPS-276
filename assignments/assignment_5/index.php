@@ -1,11 +1,11 @@
-
 <?php
 
 class FileDirectory
 {
     public function createFile($folder, $content)
     {
-        $dir = __DIR__ . "/directories/" . $folder;
+        // Creates the folder in the same directory as this PHP file.
+        $dir = __DIR__ . "/" . $folder;
 
         $valid = true;
 
@@ -29,7 +29,7 @@ class FileDirectory
             ];
         }
 
-        // Check whether the directory already exists
+        // Check whether the directory already exists.
         if (is_dir($dir)) {
             return [
                 "success" => false,
@@ -37,7 +37,7 @@ class FileDirectory
             ];
         }
 
-        // Makes the directory.
+        // Makes the directory with 0777 permissions.
         $success = mkdir($dir, 0777);
 
         if (!$success) {
@@ -76,7 +76,7 @@ class FileDirectory
         return [
             "success" => true,
             "message" => "Directory and file created successfully!",
-            "file" => "directories/" . $folder . "/readme.txt"
+            "file" => $folder . "/readme.txt"
         ];
     }
 }
