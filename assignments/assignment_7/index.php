@@ -25,26 +25,29 @@ $page = new Page();
         <a href="listFiles.php">Show File List</a>
     </p>
 
-    <form action="php/fileuploadProc.php"
-          method="POST"
-          enctype="multipart/form-data">
+    
+<form action="php/fileuploadProc.php"
+      method="POST"
+      enctype="multipart/form-data">
 
-        <h6>File Name</h6>
+    <h6>File Name</h6>
 
-        <input type="file"
-               name="pdfFile"
-               accept=".pdf,application/pdf"
-               required>
+    <input type="text"
+           name="displayName"
+           placeholder="Enter file name"
+           required>
 
-        <br><br>
+    <br><br>
 
-        <button type="submit" name="upload">
-            Upload
-        </button>
+    <input type="file"
+           name="pdfFile"
+           accept=".pdf,application/pdf"
+           required>
 
-    </form>
+    <br><br>
 
-</div>
+    <button type="submit" name="upload">
+        Upload
+    </button>
 
-</body>
-</html>
+</form>

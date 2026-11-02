@@ -33,7 +33,7 @@ if (isset($_POST['upload'])) {
     else {
 
         // Get filename
-        $displayName = basename($_FILES['pdfFile']['name']);
+        $displayName = trim($_POST['displayName']);
 
         // Check file type
         $finfo = new finfo(FILEINFO_MIME_TYPE);
