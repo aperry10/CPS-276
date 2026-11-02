@@ -9,7 +9,7 @@ class DatabaseConn {
 
         try {
 
-            $dbHost = 'localhost';
+            $dbHost = '127.0.0.1';
             $dbName = 'aperry10';
             $dbUsr = 'aperry10';
             $dbPass = 'OBHX5Iup9sEA7sx';
