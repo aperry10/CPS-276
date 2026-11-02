@@ -6,11 +6,9 @@ class Page {
     public function nav() {
 
         $nav = <<<NAV
-        <nav>
-            <ul>
-                <li><a href="index.php">Upload PDF</a></li>
-                <li><a href="listFiles.php">View Uploaded Files</a></li>
-            </ul>
+        <nav class="mb-3">
+            <a href="index.php">File Upload</a> |
+            <a href="listFiles.php">Show File List</a>
         </nav>
 NAV;
 
@@ -19,3 +17,4 @@ NAV;
 }
 
 ?>
+
