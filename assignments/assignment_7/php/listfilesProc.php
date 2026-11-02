@@ -9,19 +9,21 @@ $sql = "SELECT * FROM files";
 
 $records = $pdo->selectNotBinded($sql);
 
+$list = "";
+
 if ($records == "error") {
 
-    echo "There was an error retrieving files.";
+    $list = "There was an error retrieving files.";
 
 }
 elseif (count($records) == 0) {
 
-    echo "No files found.";
+    $list = "No files found.";
 
 }
 else {
 
-    echo "<ul>";
+    $list = "<ul>";
 
     foreach ($records as $row) {
 
@@ -29,11 +31,11 @@ else {
 
         $path = htmlspecialchars($row['filePath'], ENT_QUOTES, 'UTF-8');
 
-        echo "<li><a target='_blank' href='{$path}'>{$name}</a></li>";
+        $list .= "<li><a target='_blank' href='../{$path}'>{$name}</a></li>";
 
     }
 
-    echo "</ul>";
+    $list .= "</ul>";
 
 }
 

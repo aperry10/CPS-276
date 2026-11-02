@@ -1,12 +1,7 @@
-
 <?php
 
-require_once "Crud.php";
-require_once "Page.php";
-
-$crud = new Crud();
-
-$files = $crud->getFiles();
+require_once "page.php";
+require_once "php/listfilesProc.php";
 
 $page = new Page();
 
@@ -16,17 +11,24 @@ $page = new Page();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Uploaded PDF Files</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List Files</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-<?php echo $page->nav(); ?>
+<div class="container">
 
-<h1>Uploaded PDF Documents</h1>
+    <h1>List Files</h1>
 
-<?php echo $files; ?>
+    <?php echo $page->nav(); ?>
+
+    <?php echo $list; ?>
+
+</div>
 
 </body>
 </html>
