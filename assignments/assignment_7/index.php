@@ -26,27 +26,39 @@ $page = new Page();
     </p>
 
     
+
 <form action="php/fileuploadProc.php"
       method="POST"
       enctype="multipart/form-data">
 
-    <h6>File Name</h6>
+    <div class="mb-3">
+        <label for="displayName" class="form-label">
+            File Name
+        </label>
 
-    <input type="text"
-           name="displayName"
-           placeholder="Enter file name"
-           required>
+        <input type="text"
+               class="form-control"
+               id="displayName"
+               name="displayName"
+               required>
+    </div>
 
-    <br><br>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">
+            Choose PDF File
+        </label>
 
-    <input type="file"
-           name="pdfFile"
-           accept=".pdf,application/pdf"
-           required>
+        <input class="form-control"
+               type="file"
+               id="formFile"
+               name="pdfFile"
+               accept=".pdf,application/pdf"
+               required>
+    </div>
 
-    <br><br>
-
-    <button type="submit" name="upload">
+    <button type="submit"
+            name="upload"
+            class="btn btn-primary">
         Upload
     </button>
 
