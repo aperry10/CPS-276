@@ -1,7 +1,7 @@
 
 <?php
 
-require_once "../classes/Pdo_methods.php";
+require_once __DIR__ . "/../classes/Pdo_methods.php";
 
 $pdo = new PdoMethods();
 
