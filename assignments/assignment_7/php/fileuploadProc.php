@@ -53,72 +53,72 @@ if (isset($_POST['upload'])) {
 
         else {
 
-            // Set the upload folder
-            $folder = __DIR__ . "/../files/";
+            
+// Set the upload folder
+$folder = __DIR__ . "/../files/";
 
-            // Create folder if it does not exist
-            if (!is_dir($folder)) {
-                mkdir($folder, 0755, true);
-            }
+// Create folder if it does not exist
+if (!is_dir($folder)) {
+    mkdir($folder, 0755, true);
+}
 
-            // Create a unique filename
-            $fileName = bin2hex(random_bytes(16)) . ".pdf";
+// Check if folder is writable
+if (!is_writable($folder)) {
 
-            $destination = $folder . $fileName;
-
-            $filePath = "files/" . $fileName;
-
-            // Move uploaded PDF into files folder
-            if (move_uploaded_file(
-                $_FILES['pdfFile']['tmp_name'],
-                $destination
-            )) {
-
-                // Create PDO object
-                $pdo = new PdoMethods();
-
-                // Create SQL statement
-                $sql = "INSERT INTO files
-                        (displayName, filePath)
-                        VALUES (:displayName, :filePath)";
-
-                // Bind database values
-                $bindings = [
-                    [':displayName', $displayName, 'str'],
-                    [':filePath', $filePath, 'str']
-                ];
-
-                // Insert information into database
-                $result = $pdo->otherBinded($sql, $bindings);
-
-                if ($result == "noerror") {
-
-                    $message = "File uploaded successfully!";
-
-                }
-                else {
-
-                    unlink($destination);
-
-                    $message = "There was an error saving the file information.";
-
-                }
-
-            }
-            else {
-
-                $message = "Unable to move uploaded file.";
-
-            }
-
-        }
-
-    }
+    $message = "The files folder is not writable.";
 
 }
 else {
 
-    $message = "Please submit the upload form.";
+    // Create a unique filename
+    $fileName = bin2hex(random_bytes(16)) . ".pdf";
+
+    $destination = $folder . $fileName;
+
+    $filePath = "files/" . $fileName;
+
+    // Move uploaded PDF into files folder
+    if (move_uploaded_file(
+        $_FILES['pdfFile']['tmp_name'],
+        $destination
+    )) {
+
+        // Create PDO object
+        $pdo = new PdoMethods();
+
+        // Create SQL statement
+        $sql = "INSERT INTO files
+                (displayName, filePath)
+                VALUES (:displayName, :filePath)";
+
+        // Bind database values
+        $bindings = [
+            [':displayName', $displayName, 'str'],
+            [':filePath', $filePath, 'str']
+        ];
+
+        // Insert information into database
+        $result = $pdo->otherBinded($sql, $bindings);
+
+        if ($result == "noerror") {
+
+            $message = "File uploaded successfully!";
+
+        }
+        else {
+
+            unlink($destination);
+
+            $message = "There was an error saving the file information.";
+
+        }
+
+    }
+    else {
+
+        $message = "Unable to move uploaded file.";
+
+    }
 
 }
 
