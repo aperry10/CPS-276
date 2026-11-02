@@ -1,6 +1,6 @@
 
 <?php
-require_once "Page.php";
+require_once "page.php";
 require_once "php/fileuploadProc.php";
 
 $page = new Page();
@@ -8,6 +8,7 @@ $page = new Page();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,45 +23,29 @@ $page = new Page();
 
     <h1>File Upload</h1>
 
-    <p>
-        <a href="listFiles.php">Show File List</a>
-    </p>
+    <p><a href="listFiles.php">Show File List</a></p>
 
-    
+    <p><?php echo htmlspecialchars($message); ?></p>
 
-<form action="php/fileuploadProc.php"
-      method="POST"
-      enctype="multipart/form-data">
+    <form method="post" action="index.php" enctype="multipart/form-data">
 
-    <div class="mb-3">
-        <label for="displayName" class="form-label">
-            File Name
-        </label>
+        <div class="mb-3">
+            <label for="fileName" class="form-label">File Name</label>
+            <input type="text" class="form-control"
+                   id="fileName" name="fileName" required>
+        </div>
 
-        <input type="text"
-               class="form-control"
-               id="displayName"
-               name="displayName"
-               required>
-    </div>
+        <div class="mb-3">
+            <input type="file" class="form-control"
+                   name="file" accept=".pdf,application/pdf" required>
+        </div>
 
-    <div class="mb-3">
-        <label for="formFile" class="form-label">
-            Choose PDF File
-        </label>
+        <button type="submit" name="fileUpload"
+                class="btn btn-primary">Upload File</button>
 
-        <input class="form-control"
-               type="file"
-               id="formFile"
-               name="pdfFile"
-               accept=".pdf,application/pdf"
-               required>
-    </div>
+    </form>
 
-    <button type="submit"
-            name="upload"
-            class="btn btn-primary">
-        Upload
-    </button>
+</div>
 
-</form>
+</body>
+</html>

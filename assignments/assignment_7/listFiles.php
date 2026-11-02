@@ -1,3 +1,4 @@
+<
 <?php
 
 require_once "page.php";
@@ -24,7 +25,7 @@ $page = new Page();
 
     <h1>List Files</h1>
 
-    <?php echo $page->nav(); ?>
+    <p><a href="index.php">Add File</a></p>
 
     <?php echo $list; ?>
 

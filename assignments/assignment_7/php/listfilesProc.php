@@ -1,4 +1,5 @@
 
+
 <?php
 
 require_once __DIR__ . "/../classes/Pdo_methods.php";
@@ -27,11 +28,19 @@ else {
 
     foreach ($records as $row) {
 
-        $name = htmlspecialchars($row['displayName'], ENT_QUOTES, 'UTF-8');
+        $name = htmlspecialchars(
+            $row['displayName'],
+            ENT_QUOTES,
+            'UTF-8'
+        );
 
-        $path = htmlspecialchars($row['filePath'], ENT_QUOTES, 'UTF-8');
+        $path = htmlspecialchars(
+            $row['filePath'],
+            ENT_QUOTES,
+            'UTF-8'
+        );
 
-        $list .= "<li><a target='_blank' href='../{$path}'>{$name}</a></li>";
+        $list .= "<li><a target='_blank' href='{$path}'>{$name}</a></li>";
 
     }
 
