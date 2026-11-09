@@ -32,7 +32,6 @@ $output = $dt->init("display");
 
     <h1>Display Notes</h1>
 
-    <p><?php echo $output; ?></p>
 
     <form action="display_notes.php" method="post">
 
@@ -86,7 +85,7 @@ $output = $dt->init("display");
         </div>
 
     </form>
-
+    <p><?php echo $output; ?></p>
     <p><a href="index.php">Add Notes</a></p>
 
 </div>
